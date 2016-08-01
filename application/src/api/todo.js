@@ -30,3 +30,17 @@ export function deleteItem(id) {
     })
   });
 }
+
+export function toggleComplete(id) {
+  let status = store.getState().todoReducer.todos.reduce(function (a,b) {
+    return b.id === id ? (b.status === 'complete' ? 'active' : 'complete') : a
+  }, '');
+  
+  return axios.patch(`http://localhost:8001/todos/${id}`, {status:status}).then(function(response){
+    store.dispatch({
+      type: 'TOGGLE_COMPLETE',
+      id: id,
+      status: status
+    })
+  })
+}

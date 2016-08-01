@@ -15,6 +15,19 @@ export default function(state = todoInitialState, action) {
         return todo.id !== action.id
       })}
 
+    case 'TOGGLE_COMPLETE':
+      return {...state, todos:state.todos.map(todo => {
+        if (todo.id === action.id) {
+          return {
+            id: todo.id,
+            status: action.status,
+            text: todo.text
+          }
+        } else {
+          return todo;
+        }
+      })}
+
     default:
       return state;
   }
