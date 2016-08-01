@@ -1,10 +1,10 @@
-MVP
+## MVP
 1. User can add a todo
 2. User can delete a todo
 3. User can view todos
 4. User can complete a todo
 
-Features
+## Features
 1. User can see how many todos are not completed
 2. User can filter todos based on completion status
 3. User can clear all completed todos
